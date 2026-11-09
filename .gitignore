@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Python virtual env (created by uv)
+.venv/
+
+# Bytecode
+__pycache__/
+*.py[cod]
+
+# Tool caches
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build output
+dist/
+build/
+*.egg-info/
+
+# Secrets (GitHub token from S4)
+.env
