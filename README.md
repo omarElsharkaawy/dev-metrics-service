@@ -2,7 +2,7 @@
 
 An engineering metrics service. It ingests pull requests, review comments and bugs, stores them in PostgreSQL, and serves engineering KPIs (cycle time, review latency, bug rate, reviewer load) through a typed FastAPI API.
 
-> **Status: early development.** The project skeleton and quality gates are in place. Ingestion, storage and the API are being built step by step. See [Roadmap](#roadmap).
+> **Status: early development.** The project skeleton, quality gates and domain models are in place. Ingestion, storage and the API are being built step by step. See [Roadmap](#roadmap).
 
 ## Why
 
@@ -86,8 +86,8 @@ Every endpoint except `/health` will require an API key.
 | Step | What | Status |
 | --- | --- | --- |
 | S1 | Project skeleton and quality gates | ✅ Done |
-| S2 | Domain models with Pydantic | ⬜ Next |
-| S3 | Source interface and fake source | ⬜ |
+| S2 | Domain models with Pydantic | ✅ Done |
+| S3 | Source interface and fake source | ⬜ Next |
 | S4 | GitHub source adapter | ⬜ |
 | S5 | Reference KPI functions | ⬜ |
 | S6 | Postgres schema and migrations | ⬜ |
@@ -105,6 +105,7 @@ The full plan is in [docs/PLAN.md](docs/PLAN.md), and step-by-step progress is t
 
 ```text
 src/devmetrics/     application package
+src/devmetrics/domain/  typed, immutable domain models (Pydantic)
 tests/unit/         fast tests with no external services
 docs/               plan, progress log and (later) architecture decision records
 ```

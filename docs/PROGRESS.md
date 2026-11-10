@@ -1,5 +1,5 @@
 S1 | done | 2026-11-10 | Skeleton + gates. Gotcha: mypy errors if a path in `files` does not exist yet; fresh-clone check must use tracked files only.
-S2 | todo | | Domain models with Pydantic (2h)
+S2 | done | 2026-11-10 | Frozen models + UtcDatetime. Gotchas: mypy needs pydantic.mypy plugin to see frozen; AwareDatetime keeps offset, so normalize to UTC.
 S3 | todo | | Source interface and fake source (1.5h)
 S4 | todo | | GitHub source adapter (3.5h)
 S5 | todo | | Reference KPI functions (1.5h)

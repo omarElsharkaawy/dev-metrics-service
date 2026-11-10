@@ -7,7 +7,9 @@ authors = [
     { name = "Omar Elsharkawy", email = "omarelsharkawy525@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pydantic>=2.14.3",
+]
 
 [project.scripts]
 devmetrics = "devmetrics:main"
@@ -37,6 +39,12 @@ select = ["E", "W", "F", "I", "B", "UP", "SIM", "RUF", "N", "ASYNC"]
 python_version = "3.12"
 strict = true
 files = ["src", "tests"]
+plugins = ["pydantic.mypy"]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
