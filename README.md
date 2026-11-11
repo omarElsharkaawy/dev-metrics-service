@@ -2,7 +2,7 @@
 
 An engineering metrics service. It ingests pull requests, review comments and bugs, stores them in PostgreSQL, and serves engineering KPIs (cycle time, review latency, bug rate, reviewer load) through a typed FastAPI API.
 
-> **Status: early development.** The project skeleton, quality gates and domain models are in place. Ingestion, storage and the API are being built step by step. See [Roadmap](#roadmap).
+> **Status: early development.** The project skeleton, quality gates, domain models, the `SourceAdapter` interface and a seeded fake source are in place. Ingestion, storage and the API are being built step by step. See [Roadmap](#roadmap).
 
 ## Why
 
@@ -87,8 +87,8 @@ Every endpoint except `/health` will require an API key.
 | --- | --- | --- |
 | S1 | Project skeleton and quality gates | ✅ Done |
 | S2 | Domain models with Pydantic | ✅ Done |
-| S3 | Source interface and fake source | ⬜ Next |
-| S4 | GitHub source adapter | ⬜ |
+| S3 | Source interface and fake source | ✅ Done |
+| S4 | GitHub source adapter | ⬜ Next |
 | S5 | Reference KPI functions | ⬜ |
 | S6 | Postgres schema and migrations | ⬜ |
 | S7 | Idempotent ingestion and sync runs | ⬜ |
@@ -106,6 +106,8 @@ The full plan is in [docs/PLAN.md](docs/PLAN.md), and step-by-step progress is t
 ```text
 src/devmetrics/     application package
 src/devmetrics/domain/  typed, immutable domain models (Pydantic)
+src/devmetrics/sources/ SourceAdapter protocol and adapters (fake; GitHub next)
 tests/unit/         fast tests with no external services
+tests/contract/     contract suite every SourceAdapter must pass
 docs/               plan, progress log and (later) architecture decision records
 ```
